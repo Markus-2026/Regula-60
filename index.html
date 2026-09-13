@@ -13,6 +13,7 @@
             --text-main: #2d3748;
             --text-muted: #5a6578;
             --border-color: #eadcd6;
+            --yellow-badge: #ffe600;
             --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
         }
 
@@ -78,14 +79,21 @@
 
         .ticket-title {
             color: var(--accent-red);
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: 800;
             line-height: 1.2;
+            margin-bottom: 0.25rem;
+        }
+
+        .ticket-subtitle {
+            color: var(--accent-red);
+            font-size: 1.15rem;
+            font-weight: 700;
             margin-bottom: 1.25rem;
         }
 
         .info-group {
-            margin-bottom: 1rem;
+            margin-bottom: 0.9rem;
         }
 
         .info-label {
@@ -100,6 +108,19 @@
             font-size: 1.05rem;
             font-weight: 600;
             color: var(--text-main);
+        }
+
+        /* Gelbe Anmeldefrist-Box */
+        .deadline-badge {
+            background-color: var(--yellow-badge);
+            color: #111;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 0.5rem 0 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
         }
 
         .ticket-image-wrapper {
@@ -122,7 +143,46 @@
             pointer-events: none;
         }
 
-        /* --- INFO CARDS --- */
+        /* --- ANMELDE-BOX MIT BUTTON --- */
+        .rsvp-box {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.75rem 1.5rem;
+            text-align: center;
+            border: 2px solid var(--accent-red);
+            box-shadow: var(--shadow);
+        }
+
+        .rsvp-box h3 {
+            color: var(--accent-red);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .rsvp-box p {
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-rsvp {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 0.85rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-rsvp:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* --- CONTENT CARDS --- */
         .content-card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -246,8 +306,13 @@
 
             <div class="ticket-main">
                 <div class="ticket-details">
-                    <div class="ticket-title">REGULA's<br>60. LIVE «KONZERT»</div>
+                    <div class="ticket-title">REGULA’s GEBURTSTAG</div>
+                    <div class="ticket-subtitle">60. LIVE «KONZERT»</div>
                     
+                    <div class="deadline-badge">
+                        Bitte um An- / Abmeldung bis 15. Okt. 2026
+                    </div>
+
                     <div class="info-group">
                         <div class="info-label">Wann</div>
                         <div class="info-value">Samstag, 14.11.2026</div>
@@ -259,6 +324,11 @@
                     </div>
 
                     <div class="info-group">
+                        <div class="info-label">Ende</div>
+                        <div class="info-value">Um 17:00 Uhr (wir müssen raus, leider)</div>
+                    </div>
+
+                    <div class="info-group">
                         <div class="info-label">Wo</div>
                         <div class="info-value">
                             Pfadiheim Arbon<br>
@@ -267,12 +337,21 @@
                     </div>
                 </div>
 
-                <!-- BILD AM RICHTIGEN ORT EINGEFÜGT -->
+                <!-- BILD REGULA1 -->
                 <div class="ticket-image-wrapper">
                     <img src="Regula1.jpg" alt="Regula" style="max-width: 100%; height: auto; border-radius: 8px;">
                     <div class="overlay-number">60</div>
                 </div>
             </div>
+        </div>
+
+        <!-- ANMELDE-BEREICH MIT BUTTON -->
+        <div class="rsvp-box">
+            <h3>Bist du mit dabei?</h3>
+            <p>Gib uns bitte kurz Bescheid, damit wir die Verpflegung planen können.</p>
+            <a href="mailto:Regula.to@bluewin.ch?subject=Anmeldung%20Geburtstagsfeier%20Regula&body=Hallo%20Regula,%0D%0A%0D%0AIch%20komme%20gerne%20zu%20deiner%20Geburtstagsfeier!%0D%0AAnzahl%20Personen:%201%0D%0A%0D%0ALiebe%20Grüsse,%0D%0A" class="btn-rsvp">
+                ✉️ Per E-Mail zu- oder absagen
+            </a>
         </div>
 
         <!-- TOUR-FAKTEN -->
@@ -293,7 +372,7 @@
                 </div>
                 <div class="fact-item">
                     <span class="fact-icon">🎁</span>
-                    <p><strong>Geschenke:</strong> Gute Laune, witzige Anekdoten und Durst haben Vorrang. Wer Regula etwas überreichen möchte, darf das natürlich tun – das grösste Geschenk ist eure Anwesenheit.</p>
+                    <p><strong>Geschenke:</strong> Das grösste Geschenk ist eure Anwesenheit. Wer sich nicht zurückhalten möchte, darf gerne ein Glückslos mitbringen – die Party bei einem grossen Gewinn ist versprochen!</p>
                 </div>
                 <div class="fact-item">
                     <span class="fact-icon">🍽️</span>
