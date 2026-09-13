@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regula – 60 & Sagenhaft | VIP Ticket</title>
+    <style>
+        :root {
+            --primary-bg: #f9f5f3;
+            --card-bg: #ffffff;
+            --accent-red: #7c2d2d;
+            --accent-light: #fbeee8;
+            --text-main: #2d3748;
+            --text-muted: #5a6578;
+            --border-color: #eadcd6;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* --- TICKET CARD --- */
+        .ticket-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .ticket-bar {
+            background-color: var(--accent-red);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.25rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .ticket-main {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .ticket-main {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        .ticket-details {
+            padding: 1.5rem;
+        }
+
+        .ticket-title {
+            color: var(--accent-red);
+            font-size: 1.7rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        .info-group {
+            margin-bottom: 1rem;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-red);
+            font-weight: 800;
+        }
+
+        .info-value {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .ticket-image-wrapper {
+            position: relative;
+            min-height: 250px;
+            max-height: 350px;
+            background: #e2e8f0;
+        }
+
+        .ticket-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .overlay-number {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 1rem;
+            font-size: 6rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            pointer-events: none;
+        }
+
+        /* --- INFO SECTIONS & CARDS --- */
+        .content-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            color: var(--accent-red);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Fakten-Liste */
+        .fact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .fact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .fact-icon {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+
+        .fact-item strong {
+            color: var(--text-main);
+        }
+
+        .fact-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Anreise & Hinweise */
+        .grid-two {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid-two {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .alert-box {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent-red);
+            padding: 0.9rem 1rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .alert-box strong {
+            color: var(--accent-red);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .btn-map {
+            display: inline-block;
+            background-color: var(--accent-red);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        @media (min-width: 480px) {
+            .btn-map {
+                width: auto;
+            }
+        }
+
+        /* Banner & Footer */
+        .highlight-banner {
+            text-align: center;
+            padding: 1.5rem;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--accent-red);
+            background: var(--accent-light);
+            border-radius: 12px;
+            border: 1px dashed var(--accent-red);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 1rem 0 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="ticket-card">
+            <div class="ticket-bar">
+                <span>VIP Ticket</span>
+                <span>60 – Und Sagenhaft</span>
+            </div>
+
+            <div class="ticket-main">
+                <div class="ticket-details">
+                    <div class="ticket-title">REGULA's<br>60. LIVE «KONZERT»</div>
+                    
+                    <div class="info-group">
+                        <div class="info-label">Wann</div>
+                        <div class="info-value">Samstag, 14.11.2026</div>
+                    </div>
+
+                    <div class="info-group">
+                        <div class="info-label">Einlass & Essen</div>
+                        <div class="info-value">Ab 12:30 Uhr / Essen um 13:00 Uhr</div>
+                    </div>
+
+                    <div class="info-group">
+                        <div class="info-label">Wo</div>
+                        <div class="info-value">
+                            Pfadiheim Arbon<br>
+                            Fallentürliweg, 9320 Arbon
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ticket-image-wrapper">
+                    <img src="79526.jpg" alt="Regula am See">
+                    <div class="overlay-number">60</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section-title">🎸 Die harten Tour-Fakten</div>
+            <div class="fact-list">
+                <div class="fact-item">
+                    <span class="fact-icon">👗</span>
+                    <p><strong>Dresscode:</strong> «Festival-Chic trifft Gemütlichkeit» – rockig, lässig oder schick. Trag das, worin du am besten lachen kannst!</p>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-icon">👟</span>
+                    <p><strong>Schuh-Tipp:</strong> High Heels dürfen gern zuhause bleiben. Standfeste Sneakers, Boots oder festivaltaugliches Schuhwerk bringen eindeutig mehr Punkte auf der Pfadiheim-Bühne.</p>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-icon">😁</span>
+                    <p><strong>Accessoire-Pflicht:</strong> Mindestens ein breites Lächeln.</p>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-icon">🎁</span>
+                    <p><strong>Geschenke:</strong> Gute Laune, witzige Anekdoten und Durst haben Vorrang. Wer Regula etwas überreichen möchte, darf das natürlich tun – das grösste Geschenk ist eure Anwesenheit.</p>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-icon">🍽️</span>
+                    <p><strong>Verpflegung:</strong> Für Speis und Trank ist bestens gesorgt. Diäten müssen leider draussen bleiben.</p>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-icon">🍰</span>
+                    <p><strong>Dessert & Kuchen:</strong> Wer sein Dessert-Lieblingsrezept teilen möchte: Ein Kuchen ist jederzeit herzlich willkommen!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section-title">📍 Anreise & Wichtige Hinweise</div>
+            
+            <div class="grid-two">
+                <div class="alert-box">
+                    <strong>🚗 Parkieren</strong>
+                    Leider eher schwierig direkt vor Ort. Bitte die wenigen weissen Parkfelder an den umliegenden Strassen nutzen oder Fahrgemeinschaften bilden.
+                </div>
+
+                <div class="alert-box">
+                    <strong>🐕 Hunde</strong>
+                    Hausordnung schlägt Tierliebe: Auf dem gesamten Pfadiheim-Areal sind Hunde leider nicht erlaubt. Bitte lasst eure Fellnasen zuhause. Danke!
+                </div>
+            </div>
+
+            <div style="margin-top: 1.25rem; text-align: center;">
+                <a href="https://maps.google.com/?q=Pfadiheim+Arbon+Fallentürliweg+9320+Arbon" target="_blank" class="btn-map">
+                    🗺️ Route in Google Maps öffnen
+                </a>
+            </div>
+        </div>
+
+        <div class="highlight-banner">
+            Pack dein Ticket ein und lass uns Regula feiern, bis die Wände im Pfadiheim wackeln! 🎉
+        </div>
+
+        <footer>
+            © 2026 Regula – 60 & Sagenhaft | VIP Tour Guide
+        </footer>
+
+    </div>
+
+</body>
+</html>
