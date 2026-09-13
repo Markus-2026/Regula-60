@@ -63,6 +63,7 @@
         .ticket-main {
             display: grid;
             grid-template-columns: 1fr;
+            align-items: center;
         }
 
         @media (min-width: 768px) {
@@ -103,31 +104,25 @@
 
         .ticket-image-wrapper {
             position: relative;
-            min-height: 250px;
-            max-height: 350px;
-            background: #e2e8f0;
-        }
-
-        .ticket-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .overlay-number {
             position: absolute;
-            bottom: 0.5rem;
-            right: 1rem;
-            font-size: 6rem;
+            bottom: 1.5rem;
+            right: 2rem;
+            font-size: 5.5rem;
             font-weight: 900;
             color: rgba(255, 255, 255, 0.85);
             line-height: 1;
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
             pointer-events: none;
         }
 
-        /* --- INFO SECTIONS & CARDS --- */
+        /* --- INFO CARDS --- */
         .content-card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -146,7 +141,6 @@
             gap: 0.5rem;
         }
 
-        /* Fakten-Liste */
         .fact-list {
             display: flex;
             flex-direction: column;
@@ -174,7 +168,6 @@
             color: var(--text-muted);
         }
 
-        /* Anreise & Hinweise */
         .grid-two {
             display: grid;
             grid-template-columns: 1fr;
@@ -221,7 +214,6 @@
             }
         }
 
-        /* Banner & Footer */
         .highlight-banner {
             text-align: center;
             padding: 1.5rem;
@@ -245,6 +237,7 @@
 
     <div class="container">
 
+        <!-- VIP TICKET -->
         <div class="ticket-card">
             <div class="ticket-bar">
                 <span>VIP Ticket</span>
@@ -274,13 +267,15 @@
                     </div>
                 </div>
 
+                <!-- BILD AM RICHTIGEN ORT EINGEFÜGT -->
                 <div class="ticket-image-wrapper">
-                    <img src="79526.jpg" alt="Regula am See">
+                    <img src="Regula1.jpg" alt="Regula" style="max-width: 100%; height: auto; border-radius: 8px;">
                     <div class="overlay-number">60</div>
                 </div>
             </div>
         </div>
 
+        <!-- TOUR-FAKTEN -->
         <div class="content-card">
             <div class="section-title">🎸 Die harten Tour-Fakten</div>
             <div class="fact-list">
@@ -311,6 +306,7 @@
             </div>
         </div>
 
+        <!-- ANREISE & INFOS -->
         <div class="content-card">
             <div class="section-title">📍 Anreise & Wichtige Hinweise</div>
             
@@ -333,6 +329,7 @@
             </div>
         </div>
 
+        <!-- CALL TO ACTION -->
         <div class="highlight-banner">
             Pack dein Ticket ein und lass uns Regula feiern, bis die Wände im Pfadiheim wackeln! 🎉
         </div>
